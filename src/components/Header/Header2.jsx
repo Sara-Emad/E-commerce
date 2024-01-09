@@ -181,6 +181,7 @@ const Header2 = () => {
           <Person2OutlinedIcon />
         </IconButton>
       </Stack>
+      
     </Container>
   );
 };
