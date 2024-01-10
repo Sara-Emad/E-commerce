@@ -1,8 +1,4 @@
-import {
-  
-  ExpandMore,
-  ShoppingCartOutlined,
-} from "@mui/icons-material";
+import { ExpandMore, ShoppingCartOutlined } from "@mui/icons-material";
 import {
   Badge,
   Container,
@@ -13,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
+import { styled} from "@mui/material/styles";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import List from "@mui/material/List";
@@ -24,12 +20,13 @@ import Menu from "@mui/material/Menu";
 import { useState } from "react";
 
 const Search = styled("div")(({ theme }) => ({
-  flexGrow:"0.4",
+  flexGrow: "0.4",
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   border: "1px solid #777",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    // backgroundColor: alpha(theme.palette.common.white, 0.25),
+    border: "1px solid red",
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -37,7 +34,6 @@ const Search = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
     width: "auto",
-
   },
 }));
 
@@ -49,7 +45,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color:"#777"
+  color: "#777",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -79,7 +75,7 @@ const options = ["All categories", "Car", "Clothes", "Electronics"];
 
 const Header2 = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const open = Boolean(anchorEl);
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -93,8 +89,8 @@ const Header2 = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  
-// للتحكم بصفحة ال css بمساعدة usetheme ال hook
+
+  // للتحكم بصفحة ال css بمساعدة usetheme ال hook
   const theme = useTheme();
 
   return (
@@ -104,7 +100,13 @@ const Header2 = () => {
         <Typography variant="body2">E-commerce</Typography>
       </Stack>
 
-      <Search sx={{ borderRadius: "22px", display: "flex", justifyContent:"space-between" }}>
+      <Search
+        sx={{
+          borderRadius: "22px",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
@@ -136,7 +138,7 @@ const Header2 = () => {
               <ListItemText
                 // className="border"
                 sx={{
-                  width:93,
+                  width: 93,
                   textAlign: "center",
                   "&:hover": { cursor: "pointer" },
                 }}
@@ -146,7 +148,6 @@ const Header2 = () => {
             </ListItem>
           </List>
           <Menu
-          
             id="lock-menu"
             anchorEl={anchorEl}
             open={open}
@@ -158,7 +159,7 @@ const Header2 = () => {
           >
             {options.map((option, index) => (
               <MenuItem
-              sx={{fontSize:"13px"}}
+                sx={{ fontSize: "13px" }}
                 key={option}
                 selected={index === selectedIndex}
                 onClick={(event) => handleMenuItemClick(event, index)}
@@ -181,7 +182,6 @@ const Header2 = () => {
           <Person2OutlinedIcon />
         </IconButton>
       </Stack>
-      
     </Container>
   );
 };
