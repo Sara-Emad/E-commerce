@@ -19,6 +19,13 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import ElectricBikeIcon from "@mui/icons-material/ElectricBike";
 import LaptopChromebookIcon from "@mui/icons-material/LaptopChromebook";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import { Close } from "@mui/icons-material";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 
 const Header3 = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -33,7 +40,7 @@ const Header3 = () => {
   const theme = useTheme();
 
   const [state, setState] = useState({
-    top: false,
+    top: true,
     left: false,
     bottom: false,
     right: false,
@@ -141,8 +148,57 @@ const Header3 = () => {
         anchor={"top"}
         open={state["top"]}
         onClose={toggleDrawer("top", false)}
+        sx={{
+          ".MuiPaper-elevation.css-1sozasi-MuiPaper-root-MuiDrawer-paper": {
+            height: "100%",
+          },
+        }}
       >
-        aaaaa{" "}
+        <Box
+          className="border"
+          sx={{ width: 444, mx: "auto", mt: 6, position: "relative", pt: 10 }}
+        >
+          <IconButton sx={{ position: "absolute", top: 0, right: 0 }}>
+            <Close onClick={toggleDrawer("top", false)} />
+          </IconButton>
+
+          {[
+            { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
+            { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
+            { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
+            { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
+            { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
+            { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
+          ].map((item) => {
+            return (
+              <Accordion
+                key={item.mainLink}
+                elevation={0}
+                sx={{ bgcolor: "initial" }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography> {item.mainLink}</Typography>
+                </AccordionSummary>
+
+                {item.subLink.map((link) => {
+                  return (
+                    <List key={link} sx={{ my: 0, py: 0 }}>
+                      <ListItem sx={{ my: 0, py: 0 }}>
+                        <ListItemButton>
+                          <ListItemText primary={link} />
+                        </ListItemButton>
+                      </ListItem>
+                    </List>
+                  );
+                })}
+              </Accordion>
+            );
+          })}
+        </Box>
       </Drawer>
     </Container>
   );
