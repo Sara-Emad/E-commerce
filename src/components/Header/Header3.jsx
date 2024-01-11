@@ -5,6 +5,7 @@ import {
   IconButton,
   ListItemIcon,
   ListItemText,
+  Stack,
   Typography,
   useMediaQuery,
   useTheme,
@@ -65,7 +66,7 @@ const Header3 = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        mt:5,
+        mt: 5,
       }}
     >
       <Box>
@@ -143,15 +144,22 @@ const Header3 = () => {
         </Menu>
       </Box>
 
-      <Links/>
+      {useMediaQuery("(min-width:1200px)") && (
+        <Stack gap={4} direction={"row"} alignItems={"center"}>
+          <Links title={"Home"} />
+          <Links title={"Mega menu"} />
+          <Links title={"full screen menu"} />
+          <Links title={"pages"} />
+          <Links title={"user acount"} />
+          <Links title={"vendor acount"} />
+        </Stack>
+      )}
 
-
-       {useMediaQuery('(max-width:1000px)') && (
-            <IconButton onClick={toggleDrawer("top", true)}>
-            <MenuIcon />
-          </IconButton>
-       )}
-  
+      {useMediaQuery("(max-width:1200px)") && (
+        <IconButton onClick={toggleDrawer("top", true)}>
+          <MenuIcon />
+        </IconButton>
+      )}
 
       <Drawer
         anchor={"top"}
@@ -164,16 +172,22 @@ const Header3 = () => {
         }}
       >
         <Box
-        
           sx={{ width: 444, mx: "auto", mt: 6, position: "relative", pt: 10 }}
         >
-          <IconButton sx={{ "&:hover":{rotate:"180deg" ,transition:"0.3s" ,color:"red"}, position: "absolute", top: 0, right: 10 }}>
+          <IconButton
+            sx={{
+              "&:hover": { rotate: "180deg", transition: "0.3s", color: "red" },
+              position: "absolute",
+              top: 0,
+              right: 10,
+            }}
+          >
             <Close onClick={toggleDrawer("top", false)} />
           </IconButton>
 
           {[
             { mainLink: "Home", subLink: ["Link1", "Link2", "Link3"] },
-            {mainLink:"Mega menu", subLink:["Link1","Link2","Link3"] } ,
+            { mainLink: "Mega menu", subLink: ["Link1", "Link2", "Link3"] },
             {
               mainLink: "full screen menu",
               subLink: ["Link1", "Link2", "Link3"],
