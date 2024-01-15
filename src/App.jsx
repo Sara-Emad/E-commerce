@@ -20,6 +20,7 @@ function App() {
         <Header2 />
         <Header3 />
         <Hero />
+      
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

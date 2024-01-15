@@ -26,14 +26,14 @@ const Search = styled("div")(({ theme }) => ({
   border: "1px solid #777",
   "&:hover": {
     // backgroundColor: alpha(theme.palette.common.white, 0.25),
-    border: "1px solid red",
+    border: "1px solid #D23F57",
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  minWidth: "300px",
+  width: "200px", 
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: "auto",
+    width: "200px",
   },
 }));
 

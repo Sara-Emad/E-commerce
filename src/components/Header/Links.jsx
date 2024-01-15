@@ -31,6 +31,8 @@ const Links = ({title}) => {
           left: "25%",
           transform: " traslateX(-50%)",
           display: "none",
+          // لظهور القائمة للخارج بتاع المينيو
+          zIndex:2
         }}
       >
         <Paper sx={{ mt: 2 }}>
