@@ -33,7 +33,7 @@ const Hero = () => {
   const theme = useTheme();
   return (
     <Container>
-    <Box  sx={{ mt: 2.5, display: "flex", alignItems: "center", gap: 2 }}>
+    <Box  sx={{pt:2, mt: 2.5, display: "flex", alignItems: "center", gap: 2 }}>
         <Swiper
           loop={true}
           className=" mySwiper"

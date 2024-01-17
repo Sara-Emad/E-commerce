@@ -13,8 +13,10 @@ import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 
 const IconSection = () => {
+
+  const theme =useTheme()
   return (
-    <Container sx={{ bgcolor: "#000" }}>
+    <Container sx={{ bgcolor:  theme.palette.mode === "dark" ? "#000" : "#fff" , mt:3  }}>
       <Stack
         divider={
           useMediaQuery("(min-width:600px)") ? (
