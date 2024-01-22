@@ -160,7 +160,7 @@ const Main = () => {
                 <CardMedia
                   sx={{ height: 277 }}
                   // @ts-ignore
-                  image={`${import.meta.env.VITE_BASE_URL}${
+                  image={`${
                     item.attributes.productimg.data[0].attributes.url
                   }`}
                   title="green iguana"
